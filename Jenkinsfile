@@ -6,12 +6,12 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stage('构建') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-         stage('Test') {
+         stage('测试') {
             steps {
                 sh 'mvn test'
             }
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') { 
+        stage('启动') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
             }
